@@ -23,6 +23,12 @@ public class CadastroCozinha {
 	public Cozinha buscar(Long id) {
 		return manager.find(Cozinha.class, id);
 	}
+
+	@Transactional
+	public void remover(Cozinha cozinha) {
+		cozinha = buscar(cozinha.getId());
+		manager.remove(cozinha);
+	}
 	
 	@Transactional
 	public Cozinha adicionar(Cozinha cozinha) {
