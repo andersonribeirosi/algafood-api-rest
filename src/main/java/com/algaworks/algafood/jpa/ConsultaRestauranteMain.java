@@ -7,22 +7,25 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import com.algaworks.algafood.AlgafoodApiRestApplication;
-import com.algaworks.algafood.domain.model.Cozinha;
-import com.algaworks.algafood.domain.repository.CozinhaRepository;
+import com.algaworks.algafood.domain.model.Restaurante;
+import com.algaworks.algafood.domain.repository.RestauranteRepository;
 
-public class ConsultaCozinhaMain {
+public class ConsultaRestauranteMain {
 
 	public static void main(String[] args) {
 		ConfigurableApplicationContext applicationContext = new SpringApplicationBuilder(AlgafoodApiRestApplication.class)
 				.web(WebApplicationType.NONE)
 				.run(args);
 		
-		CozinhaRepository cadastroCozinha = applicationContext.getBean(CozinhaRepository.class);
+		RestauranteRepository cadastroRestaurante = applicationContext.getBean(RestauranteRepository.class);
 		
-		List<Cozinha> cozinhas = cadastroCozinha.listar();
 		
-		for(Cozinha cozinha: cozinhas) {
-			System.out.println(cozinha.getNome());
+		List<Restaurante> restaurantes = cadastroRestaurante.listar();
+		
+		for(Restaurante restaurante: restaurantes) {
+			System.out.printf("%s - %f - %s\n ", restaurante.getNome(), 
+					restaurante.getTaxaFrete(),
+					restaurante.getCozinha().getNome());
 		}
 	}
 }
