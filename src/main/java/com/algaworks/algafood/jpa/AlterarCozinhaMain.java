@@ -15,12 +15,12 @@ public class AlterarCozinhaMain {
 				.web(WebApplicationType.NONE)
 				.run(args);
 		
-		CozinhaRepository cozinhaRepository = applicationContext.getBean(CozinhaRepository.class);
+		CozinhaRepository todasCozinhas = applicationContext.getBean(CozinhaRepository.class);
 		
 		Cozinha cozinha = new Cozinha();
 		cozinha.setId(1L);
 		cozinha.setNome("Francesa");
 		
-		cozinhaRepository.salvar(cozinha);
+		todasCozinhas.salvar(cozinha);
 	}
 }

@@ -17,12 +17,12 @@ public class ConsultaFormaPagamentoMain {
 				.web(WebApplicationType.NONE)
 				.run(args);
 		
-		FormaPagamentoRepository formaPagamentoRepository = applicationContext.getBean(FormaPagamentoRepository.class);
+		FormaPagamentoRepository todasFormasPagamentos = applicationContext.getBean(FormaPagamentoRepository.class);
 		
-		List<FormaPagamento> todasFormasPagamentos = formaPagamentoRepository.listar();
+		List<FormaPagamento> pagamentos = todasFormasPagamentos.listar();
 		
-		for (FormaPagamento formaPagamento : todasFormasPagamentos) {
-			System.out.println(formaPagamento.getDescricao());
+		for (FormaPagamento pagamento : pagamentos) {
+			System.out.println(pagamento.getDescricao());
 		}
 	}
 	
