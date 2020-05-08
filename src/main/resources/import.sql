@@ -10,3 +10,7 @@ insert into Forma_Pagamento (descricao) values ('Dinheiro');
 
 insert into Permissao (nome, descricao) values ('Anderson', 'Admin');
 insert into Permissao (nome, descricao) values ('Juliana', 'User');
+
+insert into Estado(nome) values('Paraíba');
+insert into Cidade(nome, estado_id) values('Campina Grande', 1);
+insert into Cidade(nome, estado_id) values('João Pessoa', 1);
