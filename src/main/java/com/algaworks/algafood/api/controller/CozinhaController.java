@@ -66,7 +66,7 @@ public class CozinhaController {
 			// Copia as propriedades de cozinha para cozinhaAtual e o terceiro parâmetro(id)
 			// ignora a cópia do Id
 			BeanUtils.copyProperties(cozinha, cozinhaAtual, "id");
-			cozinhaRepository.salvar(cozinhaAtual);
+			cadastroCozinha.salvar(cozinhaAtual);
 			return ResponseEntity.ok().body(cozinhaAtual);
 		}
 
