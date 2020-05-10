@@ -6,21 +6,23 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 import com.algaworks.algafood.AlgafoodApiRestApplication;
 import com.algaworks.algafood.domain.model.Cozinha;
-import com.algaworks.algafood.domain.repository.CozinhaRepository;
+import com.algaworks.algafood.domain.service.CadastroCozinhaService;
 
 public class ExclusaoCozinhaMain {
 
+	
 	public static void main(String[] args) {
 		ConfigurableApplicationContext applicationContext = new SpringApplicationBuilder(AlgafoodApiRestApplication.class)
 				.web(WebApplicationType.NONE)
 				.run(args);
 		
-		CozinhaRepository todasCozinhas = applicationContext.getBean(CozinhaRepository.class);
+		
+		CadastroCozinhaService cadastroService = applicationContext.getBean(CadastroCozinhaService.class);
 		
 		Cozinha cozinha = new Cozinha();
 		cozinha.setId(1L);
 	
-		todasCozinhas.remover(cozinha);
+		cadastroService.excluir(2l);
 	
 	}
 }
